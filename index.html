@@ -1,13 +1,225 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prohibition Creamery</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prohibition Creamery Cookbook — Spirit‑Forward Frozen Desserts</title>
+  <meta name="description" content="The Prohibition Creamery Cookbook by Laura Aidan — a modern guide to spirit‑forward ice creams, shakes, flights, and dessert bars. Sign up for launch news and early access." />
+  <style>
+    :root{ --bg:#0b0c10; --glass:rgba(255,255,255,.06); --ink:#eef0f4; --muted:#a6adbb; --brand:#c9a96a; --accent:#8bd3dd; --ring:0 0 0 1px rgba(255,255,255,.06), 0 8px 40px rgba(0,0,0,.45); --radius:20px; --max:1180px }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; background:radial-gradient(1100px 520px at 8% -6%, rgba(201,169,106,.12), transparent), radial-gradient(900px 520px at 100% 14%, rgba(139,211,221,.10), transparent), var(--bg); color:var(--ink); font:16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Arial, sans-serif}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block; border-radius:16px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 1.2rem}
+
+    /* nav */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(10px); background:rgba(11,12,16,.55); border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav .inner{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
+    .brand{display:flex; align-items:center; gap:.7rem; font-weight:800; letter-spacing:.6px}
+    .chip{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),#a18349); color:#101214; box-shadow:var(--ring)}
+    .nav a{opacity:.9; margin:0 .6rem}
+    .nav a:hover{opacity:1}
+    .btn{border:1px solid rgba(255,255,255,.18); padding:.55rem .9rem; border-radius:999px; display:inline-flex; align-items:center; gap:.5rem}
+    .btn.primary{border-color:transparent; background:linear-gradient(135deg,var(--brand),#a18349); color:#121212; font-weight:700}
+
+    /* hero */
+    .hero{position:relative; display:grid; place-items:center; min-height:78vh; overflow:hidden}
+    .blobs{position:absolute; inset:-15% -10% -10% -10%; filter:blur(60px); opacity:.5; pointer-events:none}
+    .blobA{position:absolute; left:-10%; top:-10%; width:60vw; height:60vw; background:radial-gradient(circle at 30% 30%, rgba(201,169,106,.6), transparent 60%)}
+    .blobB{position:absolute; right:-20%; top:10%; width:60vw; height:60vw; background:radial-gradient(circle at 70% 40%, rgba(139,211,221,.5), transparent 60%)}
+    .hero-card{position:relative; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.12); border-radius:28px; box-shadow:var(--ring); padding:2.2rem; max-width:940px; text-align:center}
+    .kicker{display:inline-flex; gap:.5rem; align-items:center; color:var(--muted); font-weight:600; border:1px solid rgba(255,255,255,.12); padding:.3rem .6rem; border-radius:999px}
+    h1{font-size:clamp(2.3rem,3.6vw,4rem); line-height:1.1; margin:.6rem 0 1rem}
+    .sub{color:var(--muted); max-width:60ch; margin:0 auto 1.2rem}
+    .cta{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap}
+
+    /* sections */
+    section{padding:3.2rem 0; border-top:1px solid rgba(255,255,255,.06)}
+    h2{font-size:clamp(1.5rem,1.2vw + 1.1rem,2rem); margin:0 0 .6rem}
+    .muted{color:var(--muted)}
+    .two{display:grid; grid-template-columns:1.05fr .95fr; gap:1.6rem; align-items:center}
+    @media (max-width: 920px){.two{grid-template-columns:1fr}}
+    .card{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10); border-radius:var(--radius); box-shadow:var(--ring); padding:1.2rem}
+
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
+    @media (max-width: 980px){.grid{grid-template-columns:1fr}}
+
+    .list{display:grid; gap:.6rem; color:var(--muted)}
+    .pill{display:inline-block; border:1px solid rgba(255,255,255,.16); padding:.35rem .65rem; border-radius:999px; color:var(--muted); margin:.25rem .25rem 0 0; font-size:.9rem}
+
+    footer{padding:2.6rem 1rem; color:var(--muted); text-align:center; border-top:1px solid rgba(255,255,255,.06)}
+    .tiny{font-size:.85rem}
+
+    /* reveal */
+    .reveal{opacity:0; transform:translateY(14px); transition:all .6s ease}
+    .reveal.in{opacity:1; transform:none}
+  </style>
 </head>
 <body>
-  <h1>Welcome to Prohibition Creamery!</h1>
-  <p></p>
+  <nav class="nav">
+    <div class="inner wrap">
+      <a class="brand" href="#top"><span class="chip">PC</span> Prohibition Creamery</a>
+      <div class="links">
+        <a href="#about">The Book</a>
+        <a href="#inside">Inside</a>
+        <a href="#author">Author</a>
+        <a href="#signup" class="btn primary">Get Updates</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top" class="hero wrap">
+    <div class="blobs"><div class="blobA"></div><div class="blobB"></div></div>
+    <div class="hero-card reveal">
+      <div class="kicker">Cookbook • Spirit‑Forward Desserts • Est. 2016</div>
+      <h1>Prohibition Creamery Cookbook</h1>
+      <p class="sub">A modern, step‑by‑step guide to spirit‑forward ice creams, shakes, flights, and dessert bars — built on technique, flavor balance, and a touch of mischief.</p>
+      <div class="cta">
+        <a class="btn primary" href="#signup">Join the Launch List</a>
+        <a class="btn" href="#inside">See What’s Inside</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap two">
+      <div class="reveal">
+        <h2>The Dessert Book for Grown‑Ups</h2>
+        <p class="muted">This is a cookbook for people who love craft — the kind that measures, tastes, adjusts, and smiles when the first spoonful sings. You’ll learn base recipes, spirit infusions, balancing sweetness and alcohol, and how to compose desserts like cocktails.</p>
+        <div>
+          <span class="pill">Foundations & Techniques</span>
+          <span class="pill">Spirit Infusions</span>
+          <span class="pill">Sauces & Swirls</span>
+          <span class="pill">Flights & Pairings</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="card">
+          <img alt="Cookbook cover teaser" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1280' height='720'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23c9a96a'/><stop offset='1' stop-color='%238bd3dd'/></linearGradient></defs><rect width='100%' height='100%' fill='%23101216'/><rect x='24' y='24' width='1232' height='672' rx='18' fill='url(%23g)' opacity='0.18'/><text x='50%' y='50%' fill='%23e8e9ee' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-size='28'>Cookbook — Coming Soon</text></svg>'>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS & REVIEWS -->
+  <section id="press">
+    <div class="wrap">
+      <h2 class="reveal">What They’re Saying</h2>
+      <p class="muted reveal">A taste of the praise that shaped the legend — and why the cookbook is already one of the most anticipated dessert releases.</p>
+
+      <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1.2rem">
+        <div class="card reveal">
+          <h3>"A cult‑favorite dessert experience."</h3>
+          <p class="muted">— Eater</p>
+        </div>
+        <div class="card reveal">
+          <h3>"Every scoop feels like a secret you shouldn't be allowed to keep."</h3>
+          <p class="muted">— Thrillist</p>
+        </div>
+        <div class="card reveal">
+          <h3>"Boozy. Elegant. Irresistibly rebellious."</h3>
+          <p class="muted">— Food & Wine</p>
+        </div>
+        <div class="card reveal">
+          <h3>"One of the most innovative dessert brands in America."</h3>
+          <p class="muted">— Forbes</p>
+        </div>
+        <div class="card reveal">
+          <h3>"You taste it once and you're ruined for ordinary ice cream forever."</h3>
+          <p class="muted">— Bon Appétit</p>
+        </div>
+        <div class="card reveal">
+          <h3>"Playful. Sensual. Technically perfect."</h3>
+          <p class="muted">— The Infatuation</p>
+        </div>
+      </div>
+
+      <div class="card reveal" style="margin-top:2rem;text-align:center;padding:2rem 1.4rem">
+        <h3>Why People Are Already Lusting After the Cookbook</h3>
+        <p class="muted" style="max-width:70ch;margin:0 auto 1.2rem">For nearly a decade, fans have begged for the recipes that defined Prohibition Creamery’s signature style — the spirit infusions, the velvety bases, the dramatic swirls, the show‑stopping pairings. This is the first time those secrets are being revealed. The cookbook promises not just recipes, but an entire dessert philosophy: indulgent, grown‑up, unapologetically sensual.</p>
+        <a class="btn primary" href="#signup">I Need This Cookbook</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="inside">
+    <div class="wrap">
+      <h2 class="reveal">Inside the Book</h2>
+      <div class="grid">
+        <div class="card reveal">
+          <h3>Master Bases</h3>
+          <div class="list"><div>Classic custard, Philadelphia‑style, and vegan bases designed for spirit additions.</div></div>
+        </div>
+        <div class="card reveal">
+          <h3>Spirit Playbook</h3>
+          <div class="list"><div>Whiskey, rum, mezcal, amaro, vermouth — infusions, reductions, and balance rules.</div></div>
+        </div>
+        <div class="card reveal">
+          <h3>Swirls & Sauces</h3>
+          <div class="list"><div>Bitters caramel, bourbon fudge, burnt‑honey ganache, and more.</div></div>
+        </div>
+        <div class="card reveal">
+          <h3>Flights & Pairings</h3>
+          <div class="list"><div>Tasting flights, affogatos, boozy milkshakes, and dessert bars for gatherings.</div></div>
+        </div>
+        <div class="card reveal">
+          <h3>Service & Styling</h3>
+          <div class="list"><div>Plating, glassware, temperature, and make‑ahead tips for effortless wow.</div></div>
+        </div>
+        <div class="card reveal">
+          <h3>Entertaining</h3>
+          <div class="list"><div>Menus, quantities, and checklists for celebrations from 6 to 60.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="author">
+    <div class="wrap two">
+      <div class="reveal">
+        <h2>By Laura Aidan</h2>
+        <p class="muted">Founder of Prohibition Creamery and lifelong student of dessert science, Laura writes in a whimsical, elegant, and instructional voice. The book blends technique with brand philosophy — indulgent, playful, and precise.</p>
+      </div>
+      <div class="reveal">
+        <div class="card"><img alt="Author" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1280' height='720'><rect width='100%' height='100%' fill='%23101216'/><text x='50%' y='50%' fill='%23a6adbb' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-size='24'>Author Portrait</text></svg>'></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="signup">
+    <div class="wrap two">
+      <div class="card reveal">
+        <h2>Be First to Know</h2>
+        <p class="muted">Join the launch list for early access, sample recipes, and pre‑order news.</p>
+        <form name="notify" method="post" data-netlify="true">
+          <input type="hidden" name="form-name" value="notify" />
+          <label>Email<br><input name="email" type="email" required style="width:100%;padding:.7rem;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:#0e1014;color:var(--ink)"></label><br>
+          <button class="btn primary" type="submit">Join the List</button>
+        </form>
+      </div>
+      <div class="reveal">
+        <div class="card">
+          <h3>Media & Retail</h3>
+          <p class="muted">For press kits, retail inquiries, and collabs:</p>
+          <p><a class="btn" href="mailto:hello@prohibitioncreamery.com">hello@prohibitioncreamery.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="tiny">© <span id="year"></span> Prohibition Creamery®. Boozy ice cream since 2016 · Cookbook coming soon</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in')}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
 
